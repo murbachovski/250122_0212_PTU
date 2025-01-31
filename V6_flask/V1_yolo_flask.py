@@ -22,6 +22,33 @@ def generate_frame():
         # 탐지 표시
         annotated_frame = results[0].plot()
         
+        # 탐지된 객체의 수 추출
+        detected_objects_count = len(results[0].boxes)
+        
+        # 상태 메시지 설정
+        status = f"COUNT: {detected_objects_count}"
+        
+        # 상태 메시지 정의
+        if detected_objects_count <= 1:
+            status += " => Normal"
+            color = (0, 0, 0) # 검정
+        elif detected_objects_count <= 3:
+            status += " => Warning"
+            color = (255, 0, 0) # 블루
+        else:
+            status += " => Danger"
+            color = (0, 0, 255) # 레드
+        
+        # 상태 메시지 화면에 추가
+        cv2.putText(
+            annotated_frame,
+            status,
+            (10, 30),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            1,
+            color,
+            2)
+        
         # 프레임을 JPEG 형식으로 인코딩
         _, buffer = cv2.imencode('.jpg', annotated_frame)
         

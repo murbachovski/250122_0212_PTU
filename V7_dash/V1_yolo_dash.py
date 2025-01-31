@@ -88,7 +88,7 @@ def update_frame(n_intervals):
     )
     
     # 이미지를 Base64 형식으로 변환
-    _, buffer = cv2.imencode('jpg', annotated_frame)
+    _, buffer = cv2.imencode('.jpg', annotated_frame)
     frame_base64 = base64.b64encode(buffer).decode()
     
     # 현재 시간 가져오기
