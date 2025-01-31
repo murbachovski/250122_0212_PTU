@@ -16,7 +16,8 @@ while cap.isOpened():
         break
     
     # 거리 계산 함수 호출
-    frame = distance.calculate(frame)
+    frame, pixels_distancs = distance.calculate(frame)
+    print(pixels_distancs)
     
 # 비디오 객체 해제
 cap.release()
