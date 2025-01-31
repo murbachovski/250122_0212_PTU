@@ -1,3 +1,13 @@
+# 1. https://github.com/opengeos/segment-geospatial => Download Zip
+# 2. conda create -n name python==3.11 이상 가상환경 설치
+# 3. conda install -c conda-forge mamba
+# 4. mamba install -c conda-forge segment-geospatial
+# 5. conda install -c conda-forge gdal
+# 6. pip install groundingdino-py --upgrade
+# =>UnicodeDecodeError: 'cp949' codec can't decode byte 0xf0 in position 2876:
+# 			illegal multibyte sequence
+# =>에러 발생하면 터미널에 set PYTHONUTF8=1 설정 후 재시도
+
 from samgeo.text_sam import LangSAM
 from PIL import Image
 import matplotlib.pyplot as plt
